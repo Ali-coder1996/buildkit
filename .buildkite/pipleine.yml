@@ -1,6 +1,7 @@
 agents:
   queue: "default"
-
+steps:
+  - command: "buildkite-agent pipeline upload .buildkite/pipleine.yml"
 steps:
   - label: ":docker:"
     command:
