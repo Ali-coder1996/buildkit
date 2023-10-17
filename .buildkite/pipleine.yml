@@ -1,8 +1,8 @@
 steps:
   - label: ":docker:"
     command:
-      - "docker build . -t alialhjouj/dokcer"
-      - "docker push alialhjouj/dokcer"
+      - "docker build . -t alialhjouj/dokcer:$BUILDKITE_BUILD_NUMBER "
+      - "docker push alialhjouj/dokcer:$BUILDKITE_BUILD_NUMBER "
     plugins:
       - docker-login#v2.0.1:
           username: alialhjouj
