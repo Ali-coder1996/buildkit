@@ -4,7 +4,7 @@ steps:
   - label: ":docker:"
     command:
       - |
-        pwd
+        cat version
         export VERSION='$(cat version)'
         echo $VERSION
         # docker build . -t alialhjouj/dokcer:$VERSION .
