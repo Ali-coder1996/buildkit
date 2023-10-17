@@ -4,7 +4,7 @@ steps:
   - label: ":docker:"
     command:
       - |
-        VERSION=cat version
+        VERSION=$(echo "cat version)
         echo $VERSION
         # docker build . -t alialhjouj/dokcer:$VERSION .
         # docker push alialhjouj/dokcer:$BUILDKITE_BUILD_NUMBER
