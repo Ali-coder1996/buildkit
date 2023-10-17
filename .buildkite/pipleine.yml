@@ -1,3 +1,6 @@
+agents:
+  queue: "default"
+
 steps:
   - label: ":docker:"
     command:
