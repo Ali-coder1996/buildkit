@@ -8,11 +8,12 @@ steps:
   #    - curl -O -L https://$GITHUB_TOKEN@raw.githubusercontent.com/Ali-coder1996/pipeline/main/*.yaml
 
   
-  - label: ":dev:"
-    command: "script.sh"
+  # - label: ":dev:"
+  #   command: "script.sh"
 
     
   - label: "DEV"
+    pre-command: "script.sh"
     command:
       - ls -l
       - buildkite-agent pipeline upload dev.yaml
@@ -20,6 +21,7 @@ steps:
       - 'uber-workflow/run-without-clone':
 
   - label: "PROD"
+    pre-command: "script.sh"
     command:
       - ls -l
       - buildkite-agent pipeline upload prod.yaml
