@@ -8,9 +8,8 @@ steps:
      - curl -O -L https://$GITHUB_TOKEN@raw.githubusercontent.com/Ali-coder1996/pipeline/main/dev.yaml
 
   - label: "Checkout Repository"
-    env:
-      - REPO_NAME=$BUILDKITE_PIPELINE_SLUG
-    command: 
+    command:
+      - export REPO_NAME=$BUILDKITE_PIPELINE_SLUG
       - env
       - buildkite-agent pipeline upload dev.yaml
     plugins:
