@@ -9,7 +9,7 @@ steps:
   - wait
 
   - trigger: ".buildkite/dev.yaml"
-  - pipeline: ".buildkite/dev.yaml"
+  - pipeline: ".buildkite/dev"
   # - command: "version=${cat version};docker build . -t image:$version.$BUILDKITE_BUILD_NUMBER"
   #   plugins:
   #     - docker#v5.9.0:
