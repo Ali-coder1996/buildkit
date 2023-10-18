@@ -13,6 +13,7 @@ steps:
   - label: "Checkout Repository"
     command: 
       - ls -l
+      - cat dev.yaml
       - buildkite-agent pipeline upload dev.yaml
     plugins:
       - 'uber-workflow/run-without-clone':
