@@ -1,11 +1,14 @@
 agents:
   queue: "default"
 steps:
-  - command: "version=${cat version};docker build . -t image:$version.$BUILDKITE_BUILD_NUMBER"
-    plugins:
-      - docker#v5.9.0:
-          image: "docker:latest"
-          always-pull: true
+  - label: ":docker:"
+    command: docker build . -t alialhjouj/dokcer:$BUILDKITE_BUILD_NUMBER'
+  - include: "dev.yaml"
+  # - command: "version=${cat version};docker build . -t image:$version.$BUILDKITE_BUILD_NUMBER"
+  #   plugins:
+  #     - docker#v5.9.0:
+  #         image: "docker:latest"
+  #         always-pull: true
   # - label: ":docker:"
   #   command: docker build . -t alialhjouj/dokcer:'${cat version}.$BUILDKITE_BUILD_NUMBER'
   #     # docker push alialhjouj/dokcer:$(cat version).$BUILDKITE_BUILD_NUMBER
