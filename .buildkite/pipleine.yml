@@ -9,7 +9,7 @@ steps:
   - wait
 
   - label: ":dev:"
-    command: buildkite-agent pipeline upload .buildkite/dev.yml
+    command: buildkite-agent pipeline upload .buildkite/dev.yaml
   # - command: "version=${cat version};docker build . -t image:$version.$BUILDKITE_BUILD_NUMBER"
   #   plugins:
   #     - docker#v5.9.0:
