@@ -2,7 +2,7 @@ agents:
   queue: "default"
 steps:
   - label: ":docker:"
-    command: docker build . -t alialhjouj/dokcer:$BUILDKITE_BUILD_NUMBER'
+    command: docker build . -t alialhjouj/dokcer:$BUILDKITE_BUILD_NUMBER
   - include: "dev.yaml"
   # - command: "version=${cat version};docker build . -t image:$version.$BUILDKITE_BUILD_NUMBER"
   #   plugins:
