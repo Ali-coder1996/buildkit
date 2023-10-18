@@ -1,13 +1,11 @@
 agents:
   queue: "default"
 steps:
-
-  - label: ":ali:"
-    command: "docker build . -t image:tag; docker push image:tag"
-      plugins:
-        - docker#v5.9.0:
-            image: "docker:latest"
-            always-pull: true
+  - command: "docker build . -t image:tag; docker push image:tag"
+    plugins:
+      - docker#v5.9.0:
+          image: "docker:latest"
+          always-pull: true
   # - label: ":docker:"
   #   command: docker build . -t alialhjouj/dokcer:'${cat version}.$BUILDKITE_BUILD_NUMBER'
   #     # docker push alialhjouj/dokcer:$(cat version).$BUILDKITE_BUILD_NUMBER
