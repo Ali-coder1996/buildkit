@@ -18,7 +18,6 @@ steps:
       - buildkite-agent pipeline upload dev.yaml
     plugins:
       - 'uber-workflow/run-without-clone':
-  - wait
 
   - label: "PROD"
     command:
