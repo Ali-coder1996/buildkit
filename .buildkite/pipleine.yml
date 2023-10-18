@@ -13,7 +13,6 @@ steps:
 
     
   - label: "DEV"
-    pre-command: "script.sh"
     command:
       - ls -l
       - buildkite-agent pipeline upload dev.yaml
@@ -21,7 +20,6 @@ steps:
       - 'uber-workflow/run-without-clone':
 
   - label: "PROD"
-    pre-command: "script.sh"
     command:
       - ls -l
       - buildkite-agent pipeline upload prod.yaml
