@@ -8,9 +8,11 @@ steps:
   #    - curl -O -L https://$GITHUB_TOKEN@raw.githubusercontent.com/Ali-coder1996/pipeline/main/*.yaml
 
   
-  # - label: ":dev:"
-  #   command: "script.sh"
-
+  - label: ":Run Pre-command:"
+    command: 
+      - ls -l
+    
+  - wait: ~
     
   - label: "DEV"
     command:
