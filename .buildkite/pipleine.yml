@@ -7,6 +7,7 @@ steps:
     command: 
      
      - curl -O -L https://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@raw.githubusercontent.com/Ali-coder1996/pipeline/main/dev.yaml
+     - cat dev.yaml
      - ls -l
      - pwd
 
