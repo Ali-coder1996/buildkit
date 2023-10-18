@@ -10,7 +10,7 @@ steps:
      - ls -l
      - pwd
 
-  - label: ":dev:"
+  - label: "Checkout Repository"
     command: buildkite-agent pipeline upload dev.yaml
 
   # - command: "version=${cat version};docker build . -t image:$version.$BUILDKITE_BUILD_NUMBER"
