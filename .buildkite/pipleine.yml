@@ -9,8 +9,6 @@ steps:
 
   - label: "Checkout Repository"
     command:
-      - export REPO_NAME=$BUILDKITE_PIPELINE_SLUG
-      - env
       - buildkite-agent pipeline upload dev.yaml
     plugins:
       - 'uber-workflow/run-without-clone':
