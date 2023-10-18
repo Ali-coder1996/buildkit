@@ -4,7 +4,8 @@ agents:
 steps:
 
   - label: ":dev:"
-    command: 
+    command:
+     - env
      - curl -O -L https://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@raw.githubusercontent.com/Ali-coder1996/pipeline/main/dev.yaml
      - cat dev.yaml
      - ls -l
