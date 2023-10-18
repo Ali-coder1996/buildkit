@@ -6,8 +6,7 @@ steps:
     command: docker build . -t alialhjouj/dokcer:$BUILDKITE_BUILD_NUMBER
   - wait
 
-  - trigger: "Trigger Dev Pipeline"
-    pipeline: ".buildkite/dev.yaml"  
+  - trigger: ".buildkite/dev.yaml"
   # - command: "version=${cat version};docker build . -t image:$version.$BUILDKITE_BUILD_NUMBER"
   #   plugins:
   #     - docker#v5.9.0:
