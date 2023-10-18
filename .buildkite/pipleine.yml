@@ -1,7 +1,7 @@
 agents:
   queue: "default"
 steps:
-  - command: "docker build . -t image:'${cat version}.$BUILDKITE_BUILD_NUMBER"
+  - command: "version=${cat version};docker build . -t image:$version.$BUILDKITE_BUILD_NUMBER"
     plugins:
       - docker#v5.9.0:
           image: "docker:latest"
