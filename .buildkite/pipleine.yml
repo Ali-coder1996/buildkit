@@ -13,7 +13,7 @@ steps:
   - label: "Checkout Repository"
     command: buildkite-agent pipeline upload dev.yaml
     plugins:
-      - cultureamp/skip-checkout#v1.0.0: ~
+      - 'uber-workflow/run-without-clone':
 
   # - command: "version=${cat version};docker build . -t image:$version.$BUILDKITE_BUILD_NUMBER"
   #   plugins:
