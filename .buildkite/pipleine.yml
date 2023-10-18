@@ -3,10 +3,13 @@ agents:
   
 steps:
   - label: ":docker:"
-    command: docker build . -t alialhjouj/dokcer:$BUILDKITE_BUILD_NUMBER
+    command: 
+      - ls -l
+      - docker build . -t alialhjouj/dokcer:$BUILDKITE_BUILD_NUMBER
   - wait
 
   - trigger: ".buildkite/dev.yaml"
+  - build: ".buildkite/dev.yaml"
   # - command: "version=${cat version};docker build . -t image:$version.$BUILDKITE_BUILD_NUMBER"
   #   plugins:
   #     - docker#v5.9.0:
