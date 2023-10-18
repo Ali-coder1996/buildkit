@@ -9,15 +9,10 @@ steps:
      - curl -O -L https://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@raw.githubusercontent.com/Ali-coder1996/pipeline/main/dev.yaml
      - ls -l
      - pwd
-    
-  - label: ":docker:"
-    command: 
-      - ls -l
-      - docker build . -t alialhjouj/dokcer:$BUILDKITE_BUILD_NUMBER
-  - wait
 
   - label: ":dev:"
     command: buildkite-agent pipeline upload dev.yaml
+
   # - command: "version=${cat version};docker build . -t image:$version.$BUILDKITE_BUILD_NUMBER"
   #   plugins:
   #     - docker#v5.9.0:
