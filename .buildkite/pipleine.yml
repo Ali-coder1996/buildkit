@@ -5,7 +5,7 @@ steps:
 
   - label: ":dev:"
     command: 
-     - curl -O -L https://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@raw.githubusercontent.com/Ali-coder1996/pipeline/main/dev.yaml
+     - curl -O -L https://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@raw.githubusercontent.com/Ali-coder1996/pipeline/main/dev.yaml
      - cat dev.yaml
      - ls -l
      - pwd
