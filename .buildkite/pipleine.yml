@@ -11,7 +11,9 @@ steps:
      - pwd
 
   - label: "Checkout Repository"
-    command: buildkite-agent pipeline upload dev.yaml
+    command: 
+      - ls -l
+      - buildkite-agent pipeline upload dev.yaml
     plugins:
       - 'uber-workflow/run-without-clone':
 
