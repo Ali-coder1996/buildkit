@@ -20,7 +20,7 @@ hooks_list=$(curl -s -H "Authorization: token $GITHUB_TOKEN" $REPO_HOOKS)
 for hooks in $(echo "$hooks_list" | jq -r '.[] | .download_url')
 do
   filename=$(echo $hooks | awk -F'?' '{print $1}')
-  basname=$(basename $hooks)
+  basname=$(basename $filename)
   echo "Downloading $filename"
   curl -o .buildkite/hooks/$basname -O -L -H "Authorization: token $GITHUB_TOKEN" $filename
 done
