@@ -2,7 +2,7 @@
 set -eu
 #CLean up 
 docker images
-# TAG=$(grep "alialhjouj" | awk '{print $2}')
+TAG=$(grep "alialhjouj" | awk '{print $2}')
 # docker images
 
-# docker rmi alialhjouj/buildkit:111
+docker rmi alialhjouj/buildkit:111
