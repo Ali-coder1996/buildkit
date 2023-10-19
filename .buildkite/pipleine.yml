@@ -10,8 +10,8 @@ steps:
 
   - wait: ~
 
-  - label: ":bash: CleanUp"
-    command: "cleanup.sh"
+  # - label: ":bash: CleanUp"
+  #   command: "cleanup.sh"
 
   # - label: "PROD"
   #   command:

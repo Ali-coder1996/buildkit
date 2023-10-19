@@ -1,6 +1,0 @@
-agents:
-  queue: "default"
-steps:
-  - label: ":hellow:"
-    command: 
-      - echo "hellow from dev"
