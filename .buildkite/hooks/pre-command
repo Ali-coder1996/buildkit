@@ -13,14 +13,14 @@ do
   curl -O -L -H "Authorization: token $GITHUB_TOKEN" $filename
 done
 
-# REPO_HOOKS="https://api.github.com/repos/Ali-coder1996/pipeline/contents/.buildkite/hooks"
+REPO_HOOKS="https://api.github.com/repos/Ali-coder1996/pipeline/contents/.buildkite/hooks"
 
-# hooks_list=$(curl -s -H "Authorization: token $GITHUB_TOKEN" $REPO_HOOKS)
+hooks_list=$(curl -s -H "Authorization: token $GITHUB_TOKEN" $REPO_HOOKS)
 
-# for hooks in $(echo "$hooks_list" | jq -r '.[] | .download_url')
-# do
-#   filename=$(echo $hooks | awk -F'?' '{print $1}')
-#   basname=$(basename $hooks)
-#   echo "Downloading $filename"
-#   curl -o .buildkite/hooks/$basname -O -L -H "Authorization: token $GITHUB_TOKEN" $filename
-# done
+for hooks in $(echo "$hooks_list" | jq -r '.[] | .download_url')
+do
+  filename=$(echo $hooks | awk -F'?' '{print $1}')
+  basname=$(basename $hooks)
+  echo "Downloading $filename"
+  curl -o .buildkite/hooks/$basname -O -L -H "Authorization: token $GITHUB_TOKEN" $filename
+done
