@@ -1,17 +1,22 @@
 #!/bin/bash
 # Set the GitHub repository URL
-REPO_URL="https://api.github.com/repos/Ali-coder1996/pipeline/contents/template"
 
-# Use the GitHub API to list files in the repository
-file_list=$(curl -s -H "Authorization: token $GITHUB_TOKEN" $REPO_URL)
 
-# Loop through the list of files and download YAML files
-for url in $(echo "$file_list" | jq -r '.[] | .download_url')
-do
-  filename=$(echo $url | awk -F'?' '{print $1}')
-  echo "Downloading $filename"
-  curl -O -L -H "Authorization: token $GITHUB_TOKEN" $filename
-done
+git clone https://$GITHUB_TOKEN@github.com/Ali-coder1996/pipeline.git
+
+
+# REPO_URL="https://api.github.com/repos/Ali-coder1996/pipeline/contents/template"
+
+# # Use the GitHub API to list files in the repository
+# file_list=$(curl -s -H "Authorization: token $GITHUB_TOKEN" $REPO_URL)
+
+# # Loop through the list of files and download YAML files
+# for url in $(echo "$file_list" | jq -r '.[] | .download_url')
+# do
+#   filename=$(echo $url | awk -F'?' '{print $1}')
+#   echo "Downloading $filename"
+#   curl -O -L -H "Authorization: token $GITHUB_TOKEN" $filename
+# done
 
 # REPO_HOOKS="https://api.github.com/repos/Ali-coder1996/pipeline/contents/.buildkite/hooks"
 
@@ -25,14 +30,14 @@ done
 #   curl -o .buildkite/hooks/$basname -O -L -H "Authorization: token $GITHUB_TOKEN" $filename
 # done
 
-REPO_HOOKS="https://api.github.com/repos/Ali-coder1996/pipeline/contents/script"
+# REPO_HOOKS="https://api.github.com/repos/Ali-coder1996/pipeline/contents/script"
 
-hooks_list=$(curl -s -H "Authorization: token $GITHUB_TOKEN" $REPO_HOOKS)
+# hooks_list=$(curl -s -H "Authorization: token $GITHUB_TOKEN" $REPO_HOOKS)
 
-for hooks in $(echo "$hooks_list" | jq -r '.[] | .download_url')
-do
-  filename=$(echo $hooks | awk -F'?' '{print $1}')
-  basname=$(basename $filename)
-  echo "Downloading $filename"
-  curl -O -L -H "Authorization: token $GITHUB_TOKEN" $filename
-done
+# for hooks in $(echo "$hooks_list" | jq -r '.[] | .download_url')
+# do
+#   filename=$(echo $hooks | awk -F'?' '{print $1}')
+#   basname=$(basename $filename)
+#   echo "Downloading $filename"
+#   curl -O -L -H "Authorization: token $GITHUB_TOKEN" $filename
+# done

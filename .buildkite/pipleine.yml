@@ -3,8 +3,8 @@ agents:
   
 steps:
 
-  - label: ":github: Checkout"
-    command: "git clone https://$GITHUB_TOKEN@github.com/Ali-coder1996/pipeline.git; ls -l"
+  # - label: ":github: Checkout"
+  #   command: "git clone https://$GITHUB_TOKEN@github.com/Ali-coder1996/pipeline.git; ls -l"
 
   - label: ":modal: Build/Push Image"
     command:
