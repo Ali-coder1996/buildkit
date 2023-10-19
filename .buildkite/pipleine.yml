@@ -2,7 +2,7 @@ agents:
   queue: "default"
   
 steps:
-  - label: ":Build/Push Image:"
+  - label: ":modal: Build/Push Image"
     command:
       - buildkite-agent pipeline upload dev.yaml
     plugins:
