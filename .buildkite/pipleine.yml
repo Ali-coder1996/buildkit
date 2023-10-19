@@ -9,7 +9,7 @@ steps:
 
   
   - label: ":Run Pre-command:"
-    pre-command: "script.sh"
+    command: "ls -l"
     
   - wait: ~
     
