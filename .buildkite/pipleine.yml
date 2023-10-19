@@ -10,7 +10,6 @@ steps:
   
   - label: ":Run Pre-command:"
     pre-command: "script.sh"
-    command: "echo hi"
     
   - wait: ~
     
