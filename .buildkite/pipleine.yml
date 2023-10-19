@@ -10,8 +10,6 @@ steps:
   
   - label: ":Run Pre-command:"
     pre-command: "script.sh"
-    plugins:
-      - 'uber-workflow/run-without-clone':
     
   - wait: ~
     
