@@ -17,3 +17,4 @@ steps:
 
   - label: ":bash: CleanUp"
     command: "pipeline/script/cleanup.sh"
+    
