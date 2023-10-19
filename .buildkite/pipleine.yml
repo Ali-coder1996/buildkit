@@ -2,16 +2,21 @@ agents:
   queue: "default"
   
 steps:
+
+  - label: ":github: Checkout"
+    command: "git clone https://$GITHUB_TOKEN@github.com/Ali-coder1996/pipeline.git"
+
   - label: ":modal: Build/Push Image"
     command:
+      - ls -l
       - buildkite-agent pipeline upload dev.yaml
     plugins:
       - 'uber-workflow/run-without-clone':
 
   - wait: ~
 
-  # - label: ":bash: CleanUp"
-  #   command: "cleanup.sh"
+  - label: ":bash: CleanUp"
+    command: "cleanup.sh"
 
   # - label: "PROD"
   #   command:
