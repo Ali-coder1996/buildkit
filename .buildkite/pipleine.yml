@@ -5,12 +5,21 @@ steps:
 
   - label: ":modal: Build/Push Image"
     command:
-      - buildkite-agent pipeline upload pipeline/template/dev.yaml
+      - buildkite-agent pipeline upload pipeline/template/docker-build.yaml
 
       
   - label: ":k8s: Deploy to Dev"
     command:
+      - buildkite-agent pipeline upload pipeline/template/dev.yaml
+  #   if: build.branch != "main"
+
+  - wait: ~
+
+
+  - label: ":k8s: Deploy to Prod"
+    command:
       - buildkite-agent pipeline upload pipeline/template/prod.yaml
+    block: ":rocket: Release!"
   #   if: build.branch != "main"
 
   - wait: ~
@@ -18,4 +27,3 @@ steps:
   - label: ":bash: CleanUp"
     command: "pipeline/script/cleanup.sh"
 
-    
