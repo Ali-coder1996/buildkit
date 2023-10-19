@@ -6,16 +6,9 @@ steps:
   # - label: ":dev:"
   #   command:
   #    - curl -O -L https://$GITHUB_TOKEN@raw.githubusercontent.com/Ali-coder1996/pipeline/main/*.yaml
-
-  
-  - label: ":Run Pre-command:"
-    command: "ls -l"
-    
-  - wait: ~
     
   - label: "DEV"
     command:
-      - ls -l
       - buildkite-agent pipeline upload dev.yaml
     plugins:
       - 'uber-workflow/run-without-clone':
@@ -26,7 +19,7 @@ steps:
       - buildkite-agent pipeline upload prod.yaml
     plugins:
       - 'uber-workflow/run-without-clone':
-    
+    if: build.branch != "main"
 
   # - command: "version=${cat version};docker build . -t image:$version.$BUILDKITE_BUILD_NUMBER"
   #   plugins:
