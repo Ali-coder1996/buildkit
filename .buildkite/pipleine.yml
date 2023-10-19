@@ -11,6 +11,8 @@ steps:
   - label: ":Run Pre-command:"
     command: 
       - ls -l
+    plugins:
+      - 'uber-workflow/run-without-clone':
     
   - wait: ~
     
