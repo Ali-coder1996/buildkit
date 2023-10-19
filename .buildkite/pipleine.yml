@@ -16,11 +16,9 @@ steps:
   - wait: ~
 
   - label: ":bash: CleanUp"
-    command: "ls -l"
+    command: "ls -l pipeline/"
     plugins:
       - 'uber-workflow/run-without-clone':
-      - thedyrt/change-directory#v0.1.1:
-          cd: pipeline/script/
       
   # - label: "PROD"
   #   command:
