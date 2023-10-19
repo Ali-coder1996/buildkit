@@ -13,6 +13,14 @@ steps:
     plugins:
       - 'uber-workflow/run-without-clone':
 
+  - wait: ~
+
+  - label: "Clean UP"
+    command:
+      - ./buildkite/hooks/pre-exit
+    env:
+      IMAGE: $BUILDKITE_PIPELINE_SLUG
+      TAG: $BUILDKITE_BUILD_NUMBER
   # - label: "PROD"
   #   command:
   #     - ls -l
