@@ -15,7 +15,7 @@ steps:
   - wait: ~
 
   - label: ":bash: CleanUp"
-    command: "ls -l"
+    command: "pipeline/script/cleanup.sh"
 
       
   # - label: "PROD"
