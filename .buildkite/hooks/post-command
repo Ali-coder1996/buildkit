@@ -2,4 +2,4 @@
 #CLean up 
 
 TAG=$(grep "alialhjouj" | awk '{print $2}')
-docker rmi alialhjouj/$BUILDKITE_PIPELINE_SLUG:$TAG
+docker rmi alialhjouj/buildkit:111
