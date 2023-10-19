@@ -2,12 +2,7 @@ agents:
   queue: "default"
   
 steps:
-
-  # - label: ":dev:"
-  #   command:
-  #    - curl -O -L https://$GITHUB_TOKEN@raw.githubusercontent.com/Ali-coder1996/pipeline/main/*.yaml
-    
-  - label: "Build/Push Image"
+  - label: ":Build/Push Image:"
     command:
       - buildkite-agent pipeline upload dev.yaml
     plugins:
@@ -16,7 +11,9 @@ steps:
   - wait: ~
 
   - label: "Clean UP"
-    command: "cleanup.sh"
+    command: 
+      - cat app.js
+      - cleanup.sh
     env:
       IMAGE: $BUILDKITE_PIPELINE_SLUG
       TAG: $BUILDKITE_BUILD_NUMBER
@@ -27,17 +24,3 @@ steps:
   #   plugins:
   #     - 'uber-workflow/run-without-clone':
   #   if: build.branch != "main"
-
-  # - command: "version=${cat version};docker build . -t image:$version.$BUILDKITE_BUILD_NUMBER"
-  #   plugins:
-  #     - docker#v5.9.0:
-  #         image: "docker:latest"
-  #         always-pull: true
-  # - label: ":docker:"
-  #   command: docker build . -t alialhjouj/dokcer:'${cat version}.$BUILDKITE_BUILD_NUMBER'
-  #     # docker push alialhjouj/dokcer:$(cat version).$BUILDKITE_BUILD_NUMBER
-  #   plugins:
-  #     - docker-login#v2.0.1:
-  #         username: alialhjouj
-  #         password-env: MY_DOCKER_LOGIN_PASSWORD
-  

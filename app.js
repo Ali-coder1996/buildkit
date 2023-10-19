@@ -20,5 +20,5 @@ router.use(function (req,res,next) {
   app.use('/', router);
   
   app.listen(port, function () {
-    console.log('Example app listening on port 8080!')
+    console.log('Example apps listening on port 8080!')
   })
