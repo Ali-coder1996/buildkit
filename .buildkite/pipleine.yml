@@ -10,9 +10,9 @@ steps:
 
   - wait: ~
 
-  - label: "Clean UP"
+  - label: ":bash: CleanUp"
     command: 
-      - cat app.js
+      - ls -l
       - cleanup.sh
     env:
       IMAGE: $BUILDKITE_PIPELINE_SLUG
