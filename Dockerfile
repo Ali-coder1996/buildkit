@@ -1,31 +1,17 @@
-# Stage 1: Build the application
-FROM node:14 AS build
+FROM node:10-alpine
 
-# Set the working directory
-WORKDIR /app
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
-# Copy your application's package.json and package-lock.json
+WORKDIR /home/node/app
+
 COPY package*.json ./
 
-# Install application dependencies
+USER node
+
 RUN npm install
 
-# Copy the rest of your application's source code
-COPY . .
+COPY --chown=node:node . .
 
-# Build the application
-RUN npm run build
+EXPOSE 8080
 
-# Stage 2: Create the final image
-FROM node:14-alpine
-
-# Set the working directory
-WORKDIR /app
-
-# Copy only the necessary files from the build stage
-COPY --from=build /app/dist ./dist
-COPY --from=build /app/package*.json ./
-COPY --from=build /app/node_modules ./node_modules
-
-# Define the command to start your application
-CMD [ "node", "dist/app.js" ]
+CMD [ "node", "app.js" ]
