@@ -16,7 +16,7 @@ steps:
   - wait: ~
 
   - label: ":bash: CleanUp"
-    command: "ls -l pipeline/"
+    command: "ls -l"
     plugins:
       - 'uber-workflow/run-without-clone':
       
