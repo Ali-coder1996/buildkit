@@ -15,11 +15,12 @@ steps:
 
   - wait: ~
 
+  - block: ":rocket: Release! Deploy To Prod"
 
   - label: ":k8s: Deploy to Prod"
     command:
       - buildkite-agent pipeline upload pipeline/template/prod.yaml
-    block: ":rocket: Release!"
+    
   #   if: build.branch != "main"
 
   - wait: ~
