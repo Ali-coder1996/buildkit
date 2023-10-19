@@ -7,13 +7,15 @@ steps:
     command:
       - buildkite-agent pipeline upload pipeline/template/docker-build.yaml
 
+  - wait: ~
+
+  - label: ":bash: CleanUp"
+    command: "pipeline/script/cleanup.sh"
       
   - label: ":k8s: Deploy to Dev"
     command:
       - buildkite-agent pipeline upload pipeline/template/dev.yaml
   #   if: build.branch != "main"
-
-  - wait: ~
 
   - block: ":rocket: Release! Deploy To Prod"
 
@@ -22,9 +24,4 @@ steps:
       - buildkite-agent pipeline upload pipeline/template/prod.yaml
     
   #   if: build.branch != "main"
-
-  - wait: ~
-
-  - label: ":bash: CleanUp"
-    command: "pipeline/script/cleanup.sh"
 
