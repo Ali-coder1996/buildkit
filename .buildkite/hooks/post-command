@@ -1,4 +1,4 @@
 #!/bin/bash
 #CLean up 
 
-docker rmi alialhjouj/$BUILDKITE_PIPELINE_SLUG:$BUILDKITE_BUILD_NUMBER
+docker rmi alialhjouj/$BUILDKITE_PIPELINE_SLUG:$(grep "alialhjouj" | awk '{print $2}')
