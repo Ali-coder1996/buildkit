@@ -2,4 +2,6 @@
 #CLean up 
 
 TAG=$(grep "alialhjouj" | awk '{print $2}')
-docker rmi alialhjouj/buildkit:111
+docker images
+
+# docker rmi alialhjouj/buildkit:111
