@@ -17,7 +17,7 @@ steps:
 
   - label: "Clean UP"
     command:
-      - ./buildkite/hooks/pre-exit
+      - ./buildkite/hooks/clenup.sh
     env:
       IMAGE: $BUILDKITE_PIPELINE_SLUG
       TAG: $BUILDKITE_BUILD_NUMBER
