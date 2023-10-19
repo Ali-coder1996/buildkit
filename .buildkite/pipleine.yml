@@ -11,9 +11,7 @@ steps:
   - wait: ~
 
   - label: ":bash: CleanUp"
-    command: 
-      - ls -l
-      - ./cleanup.sh
+    command: "cleanup.sh"
     env:
       IMAGE: $BUILDKITE_PIPELINE_SLUG
       TAG: $BUILDKITE_BUILD_NUMBER
