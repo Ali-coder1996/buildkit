@@ -12,9 +12,7 @@ steps:
 
   - label: ":bash: CleanUp"
     command: "cleanup.sh"
-    env:
-      IMAGE: $BUILDKITE_PIPELINE_SLUG
-      TAG: $BUILDKITE_BUILD_NUMBER
+
   # - label: "PROD"
   #   command:
   #     - ls -l
